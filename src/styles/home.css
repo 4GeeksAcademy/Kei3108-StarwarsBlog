@@ -1,0 +1,14 @@
+body {
+    background-image: url('https://fondosmil.com/fondo/10793.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 800px; /* Ajusta el valor según tu preferencia */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+.ms-4 {
+    color: white;
+  }
+  
+  
+  
