@@ -3,19 +3,27 @@ import { Link } from "react-router-dom";
 import { useCharacterContext } from "../store/Context";
 
 export const Navbar = () => {
-  const { favorites, removeFromFavorites } = useCharacterContext(); // Add the removeFromFavorites function from the context
+  const { favorites, removeFromFavorites } = useCharacterContext(); 
 
   const handleRemoveFromFavorites = (characterName) => {
-    removeFromFavorites(characterName); // Remove the character's name from the favorites list
+    removeFromFavorites(characterName); 
   };
 
   return (
     <nav className="navbar navbar-dark bg-dark mb-3">
+      <Link to="/">
+        <img
+          className="me-4"
+          style={{ width: "100px", height: "70px", marginLeft: "20px"}}
+          src="https://upload.wikimedia.org/wikipedia/commons/4/4d/The_Clone_Wars_Logo_Bleu.JPG"
+          alt="Star Wars logo"
+        />
+      </Link>
 
       <div className="ms-3">
-        <div className="dropdown">
+        <div className="dropdown" style={{ marginRight: "20px"}}>
           <button
-            className="btn btn-warning dropdown-toggle"
+            className="btn btn-info dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -27,17 +35,16 @@ export const Navbar = () => {
             {favorites && favorites.length > 0 ? (
               favorites.map((favorite, index) => (
                 <li key={index}>
-                  <div className="d-flex align-items-center">
-                    {" "}
-                    {favorite}
+                  <div className="d-flex align-items-center" style={{ marginLeft: "10px"}}>
                     <button
                       type="button"
-                      className="btn btn-secondary ms-1"
+                      className="btn btn-secondary me-1"
                       style={{ backgroundColor: "transparent", border: "none" }}
                       onClick={() => handleRemoveFromFavorites(favorite)}
                     >
-                      ✖️
+                       <i className="fa fa-trash text-dark" />
                     </button>
+                    {favorite}
                   </div>
                 </li>
               ))
@@ -51,17 +58,6 @@ export const Navbar = () => {
           </ul>
         </div>
       </div>
-
-      {/**Imagen logo Star wars */}
-
-      <Link to="/">
-        <img
-          className="me-4"
-          style={{ width: "70px", height: "70px" }}
-          src="https://pngimg.com/d/star_wars_logo_PNG34.png"
-          alt="Star Wars logo"
-        />
-      </Link>
     </nav>
   );
 };

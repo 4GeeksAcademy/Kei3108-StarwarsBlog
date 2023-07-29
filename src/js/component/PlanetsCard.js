@@ -15,8 +15,12 @@ const PlanetsCard = ({ planet }) => {
 
   return (
     <div className="card" style={{ width: "15rem" }}>
-      <img
-        src={image}
+       <img 
+         src={image}
+         onError={({ currentTarget }) => {
+           currentTarget.onerror = null;
+           currentTarget.src="https://starwars-visualguide.com/assets/img/placeholder.jpg";
+         }}
         className="card-img-top"
         style={{ height: "14rem" }}
         alt="Star Wars image"
@@ -28,19 +32,20 @@ const PlanetsCard = ({ planet }) => {
         </p>
 
         <Link to={`/info/planets/${id}`}>
-          <button type="button" className="btn btn-secondary me-2">
+          <button type="button" className="btn btn-dark me-5">
             Learn more!
           </button>
         </Link>
 
         <button
           type="button"
-          className={`btn ${isFavorite ? "btn-danger" : "btn-warning"}`}
+          className={`btn ${isFavorite ? "btn btn-warning": "btn btn-info"}`}
           onClick={handleAddToFavorites}
+          style={{ marginLeft: "3px" }}
         >
-          {isFavorite ? "♥" : "♡"}
-        </button>
-      </div>
+          {isFavorite ? <i className="fa fa-star text-dark"/> : <i className="far fa-star text-dark"/>}
+        </button>  
+      </div> 
     </div>
   );
 };

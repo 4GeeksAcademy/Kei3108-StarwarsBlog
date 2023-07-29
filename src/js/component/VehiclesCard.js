@@ -28,18 +28,19 @@ const VehiclesCard = ({ vehicle }) => {
         </p>
 
         <Link to={`/info/vehicles/${id}`}>
-          <button type="button" className="btn btn-secondary me-2">
+          <button type="button" className="btn btn-dark me-5">
             Learn more!
           </button>
         </Link>
 
         <button
           type="button"
-          className={`btn ${isFavorite ? "btn-danger" : "btn-warning"}`}
+          className={`btn ${isFavorite ? "btn btn-warning" : "btn btn-info"}`}
           onClick={handleAddToFavorites}
+          style={{ marginLeft: "8px" }}
         >
-          {isFavorite ? "♥" : "♡"}
-        </button>
+          {isFavorite ? "★" : "☆"}
+        </button> 
       </div>
     </div>
   );

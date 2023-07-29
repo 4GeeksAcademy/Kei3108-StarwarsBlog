@@ -28,18 +28,19 @@ const CharactersCard = ({ character }) => {
         </p>
 
         <Link to={`/info/character/${id}`}>
-          <button type="button" className="btn btn-secondary me-2">
+          <button type="button" className="btn btn-dark me-5">
             Learn more!
           </button>
         </Link>
 
         <button
           type="button"
-          className={`btn ${isFavorite ? "btn-danger" : "btn-warning"}`}
+          className={`btn ${isFavorite ? "btn btn-warning": "btn btn-info"}`}
           onClick={handleAddToFavorites}
+          style={{ marginLeft: "3px" }}
         >
-          {isFavorite ? "♥" : "♡"}
-        </button>
+          {isFavorite ? <i className="fa fa-star text-dark"/> : <i className="far fa-star text-dark"/>}
+        </button> 
       </div>
     </div>
   );
